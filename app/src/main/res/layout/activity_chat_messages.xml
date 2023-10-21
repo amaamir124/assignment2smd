@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context=".ChatMessages">
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <LinearLayout
+            android:id="@+id/headingLL"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+
+            <ImageView
+                android:id="@+id/backArrow"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="2dp"
+                android:src="@drawable/back_arrow"
+                android:layout_weight="1"
+                app:tint="#454545" />
+
+            <TextView
+                android:id="@+id/chatMessageHeading"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="7"
+                android:text="Makenna Dias"
+                android:textColor="#454545"
+                android:textSize="26dp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/voiceCall"
+                android:layout_width="40dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/voice_call"
+                android:layout_weight="1"
+                app:tint="#454545" />
+
+            <ImageView
+                android:id="@+id/videoCall"
+                android:layout_width="45dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/video_call"
+                android:layout_weight="1"
+                app:tint="#454545" />
+
+
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/headingEndLine"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/headingLL"
+            android:layout_marginStart="-20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="-20dp"
+            android:background="@color/light_grey" />
+
+
+        <LinearLayout
+            android:id="@+id/chatContainer"
+            android:layout_below="@+id/headingEndLine"
+            android:layout_width="match_parent"
+            android:layout_height="530dp"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/message1RL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="100dp"
+                android:padding="8dp">
+
+                <ImageView
+                    android:id="@+id/profilePicture"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/profile_pic1"
+                    android:contentDescription="Profile Picture" />
+
+                <LinearLayout
+                    android:id="@+id/messageBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/profilePicture"
+                    android:layout_alignTop="@+id/profilePicture"
+                    android:layout_alignBottom="@+id/profilePicture"
+                    android:orientation="vertical"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/rectangle">
+
+                    <TextView
+                        android:id="@+id/messageText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:text="This is a sample message."
+                        android:padding="12dp"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/timeMessage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="18:56"
+                    android:textSize="12sp"
+                    android:layout_alignBottom="@+id/messageBox"
+                    android:layout_alignParentEnd="true"
+                    android:textStyle="bold"
+                    android:layout_marginEnd="15dp"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/replyMessageRL"
+                android:layout_below="@+id/message1RL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp">
+
+                <LinearLayout
+                    android:id="@+id/message2LL"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:orientation="vertical"
+                    android:background="@drawable/rectangle"
+                    android:backgroundTint="@color/orange">
+
+                    <TextView
+                        android:id="@+id/messageReplyText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="This is a sample message."
+                        android:textColor="@color/white"
+                        android:padding="12dp"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/timeMessage2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/message2LL"
+                    android:layout_alignParentStart="true"
+                    android:layout_gravity="start|bottom"
+                    android:layout_marginStart="80dp"
+                    android:layout_marginBottom="7dp"
+                    android:text="18:56"
+                    android:textStyle="bold"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/message3RL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp">
+
+                <ImageView
+                    android:id="@+id/profilePicture3"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/profile_pic1"
+                    android:contentDescription="Profile Picture" />
+
+                <LinearLayout
+                    android:id="@+id/messageBox3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/profilePicture3"
+                    android:layout_alignTop="@+id/profilePicture3"
+                    android:layout_alignBottom="@+id/profilePicture3"
+                    android:orientation="vertical"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/rectangle">
+
+                    <TextView
+                        android:id="@+id/messageText3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:text="This is a sample message."
+                        android:padding="12dp"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/timeMessage3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="18:56"
+                    android:textSize="12sp"
+                    android:layout_alignBottom="@+id/messageBox3"
+                    android:layout_alignParentEnd="true"
+                    android:textStyle="bold"
+                    android:layout_marginEnd="15dp"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/message3RL4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp">
+
+                <ImageView
+                    android:id="@+id/profilePicture4"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/profile_pic1"
+                    android:contentDescription="Profile Picture" />
+
+                <LinearLayout
+                    android:id="@+id/messageBox4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/profilePicture4"
+                    android:layout_alignTop="@+id/profilePicture4"
+                    android:layout_alignBottom="@+id/profilePicture4"
+                    android:orientation="vertical"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/rectangle">
+
+                    <TextView
+                        android:id="@+id/messageText4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:text="This is a sample message."
+                        android:padding="12dp"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/timeMessage4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="18:56"
+                    android:textSize="12sp"
+                    android:layout_alignBottom="@+id/messageBox4"
+                    android:layout_alignParentEnd="true"
+                    android:textStyle="bold"
+                    android:layout_marginEnd="15dp"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/message3RL5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp">
+
+                <ImageView
+                    android:id="@+id/profilePicture5"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/profile_pic1"
+                    android:contentDescription="Profile Picture" />
+
+                <LinearLayout
+                    android:id="@+id/messageBox5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/profilePicture5"
+                    android:layout_alignTop="@+id/profilePicture5"
+                    android:layout_alignBottom="@+id/profilePicture5"
+                    android:orientation="vertical"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/rectangle">
+
+                    <TextView
+                        android:id="@+id/messageText5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:text="This is a sample message."
+                        android:padding="12dp"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/timeMessage5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="18:56"
+                    android:textSize="12sp"
+                    android:layout_alignBottom="@+id/messageBox5"
+                    android:layout_alignParentEnd="true"
+                    android:textStyle="bold"
+                    android:layout_marginEnd="15dp"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/replyMessageRL3"
+                android:layout_below="@+id/message1RL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp">
+
+                <LinearLayout
+                    android:id="@+id/message2LL3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:orientation="vertical"
+                    android:background="@drawable/rectangle"
+                    android:backgroundTint="@color/orange">
+
+                    <TextView
+                        android:id="@+id/messageReplyText3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="This is a sample message."
+                        android:textColor="@color/white"
+                        android:padding="12dp"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/timeMessage23"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/message2LL3"
+                    android:layout_alignParentStart="true"
+                    android:layout_gravity="start|bottom"
+                    android:layout_marginStart="80dp"
+                    android:layout_marginBottom="7dp"
+                    android:text="18:56"
+                    android:textStyle="bold"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_below="@id/chatContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true">
+            <View
+                android:id="@+id/footerHeadingLine"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CCCCCC" />
+
+            <EditText
+                android:id="@+id/textReply"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/footerHeadingLine"
+                android:layout_marginTop="13dp"
+                android:textSize="22dp"
+                android:hint="Write a reply..."
+                android:padding="8dp" />
+
+            <LinearLayout
+                android:id="@+id/iconLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textReply"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/cameraIcon"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/camera_chat" />
+
+                <ImageView
+                    android:id="@+id/galleryIcon"
+                    android:layout_width="35dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/gallery_chat" />
+
+                <ImageView
+                    android:id="@+id/fileIcon"
+                    android:layout_width="40dp"
+                    android:layout_height="38dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/file_chat" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/sendButton"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_below="@id/textReply"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="120dp"
+                android:layout_marginTop="19dp"
+                android:layout_toEndOf="@id/iconLayout"
+                android:textColor="#FFA500"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:text="Send" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>
