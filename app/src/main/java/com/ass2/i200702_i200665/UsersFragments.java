@@ -1,11 +1,14 @@
 package com.ass2.i200702_i200665;
 
+import static java.security.AccessController.getContext;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -21,46 +24,36 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UsersFragments extends Fragment {
+public class UsersFragments extends AppCompatActivity {
 
-    private RecyclerView recyclerView;
-    private UserAdapter userAdapter;
-    private List<UserModel> mUsers;
+     RecyclerView recyclerView;
+     UserAdapter userAdapter;
+     List<UserModel> mUsers;
+     DatabaseReference database;
 
 
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        View view = inflater.inflate(R.layout.fragment_users, container, false);
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.fragment_users);
 
-        recyclerView = view.findViewById(R.id.usersRecyclerView);
+        recyclerView = findViewById(R.id.usersRecyclerView);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        database= FirebaseDatabase.getInstance().getReference("users");
 
         mUsers = new ArrayList<>();
+        userAdapter = new UserAdapter(this, mUsers);
+        recyclerView.setAdapter(userAdapter);
 
-        readUsers();
-
-        return view;
-    }
-
-    private void readUsers() {
-        final FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("users");
-        reference.addValueEventListener(new ValueEventListener() {
+        database.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 mUsers.clear();
-                for(DataSnapshot dataSnapshot: snapshot.getChildren()){
+                for(DataSnapshot dataSnapshot:snapshot.getChildren()){
                     UserModel user = dataSnapshot.getValue(UserModel.class);
-                    assert user != null;
-                    assert firebaseUser != null;
-                    if(!user.getUserId().equals(firebaseUser.getUid())){
-                        mUsers.add(user);
-                    }
+                    mUsers.add(user);
                 }
-
-                userAdapter = new UserAdapter(getContext(), mUsers);
-                recyclerView.setAdapter(userAdapter);
+                userAdapter.notifyDataSetChanged();
             }
 
             @Override
@@ -68,5 +61,8 @@ public class UsersFragments extends Fragment {
 
             }
         });
+
+
     }
+
 }
