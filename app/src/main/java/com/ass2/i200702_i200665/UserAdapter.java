@@ -13,14 +13,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder>{
 
-    private Context mContext;
-    private List<UserModel> mUsers;
+   Context mContext;
+   ArrayList<UserModel> mUsers;
 
-    public UserAdapter(Context mContext, List<UserModel> mUsers){
+    public UserAdapter(Context mContext, ArrayList<UserModel> mUsers){
         this.mUsers = mUsers;
         this.mContext = mContext;
     }
@@ -29,14 +30,14 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder>{
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view= LayoutInflater.from(mContext).inflate(R.layout.user_item,parent,false);
-        return new UserAdapter.ViewHolder(view);
+        return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         UserModel user = mUsers.get(position);
         holder.name.setText(user.getName());
-        holder.profilePicture.setImageResource(R.mipmap.ic_launcher);
+
     }
 
     @Override

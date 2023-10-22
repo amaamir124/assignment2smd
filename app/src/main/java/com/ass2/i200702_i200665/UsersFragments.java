@@ -28,7 +28,7 @@ public class UsersFragments extends AppCompatActivity {
 
      RecyclerView recyclerView;
      UserAdapter userAdapter;
-     List<UserModel> mUsers;
+     ArrayList<UserModel> mUsers;
      DatabaseReference database;
 
 
